@@ -1,0 +1,62 @@
+const UserEventTicket = require("./UserTicket.model");
+const UserGlobalEvent = require("../UserGlobalEvent/UserGlobalEvent.model");
+const User = require("../user/user.model");
+
+const { sendGmailTicket } = require("../GmailTicketSend/emailService");
+
+// Create a new event ticket
+exports.createUserTicket = async (req, res) => {
+  console.log("Creating event ticket.......");
+  try {
+    const userId = req.UserSecure_id || req.body.userId;
+    if (!userId) {
+      return res.status(400).json({ error: "User ID is required" });
+    }
+
+    const { eventName, fees, numOfTickets, totalFees, GlobalEventId } = req.body;
+
+    // Fetch the latest ticket number from the event
+    const existingEvent = await UserGlobalEvent.findById(GlobalEventId, { ticketNumber: 1 });
+
+    if (!existingEvent) {
+      return res.status(404).json({ message: "Event not found" });
+    }
+
+    //---------------------------------------------------------------------------------------------
+    // console.log("Existing Tickets Numbers:", existingEvent.ticketNumber);
+
+    // const lastTicketNumber = existingEvent.ticketNumber || 0; // Default to 0 if no tickets exist
+
+    // // Generate new ticket numbers
+    // const newTicketNumbers = Array.from({ length: numOfTickets }, (_, i) => lastTicketNumber + i + 1);
+
+    // console.log("New Tickets:", newTicketNumbers);
+
+    // // Update the event's ticketNumber with the new highest ticket number
+    // await UserGlobalEvent.findByIdAndUpdate(GlobalEventId, { ticketNumber: lastTicketNumber + numOfTickets });
+    //---------------------------------------------------------------------------------------------
+
+    const expiresAt = new Date(Date.now() + 10 * 60 * 1000); // 10-minute expiration
+
+    // Create a new ticket document
+    const newTicket = new UserEventTicket({
+      eventName=existingEvent.eventName,
+      fees=existingEvent.fees,
+      // tickets: newTicketNumbers,
+      totalFees,
+      userId,
+      numOfTickets,
+      expiresAt
+    });
+
+    // Corrected: Update the expiresAt field for the correct ticket document
+    // await UserEventTicket.updateOne({ _id: newTicket._id }, { $unset: { expiresAt: 1 } });
+
+    await newTicket.save();
+    res.status(201).json({ success: true, message: "Ticket created successfully", newTicket });
+
+  } catch (error) {
+    console.error("Error creating ticket:", error);
+    res.status(500).json({ success: false, message: "Internal server error", error: error.message });
+  }
+};

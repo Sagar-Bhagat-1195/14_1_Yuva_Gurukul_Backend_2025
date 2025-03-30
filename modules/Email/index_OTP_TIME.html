@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP Verification - {{NAME}}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 480px;
+            margin: 20px auto;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #007BFF;
+        }
+        .otp {
+            font-size: 32px;
+            font-weight: bold;
+            letter-spacing: 4px;
+            color: #333;
+            margin: 20px 0;
+        }
+        .countdown {
+            font-size: 16px;
+            color: #ff0000;
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #777;
+        }
+        .btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background: #007BFF;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">{{NAME}}</div>
+        <h2>OTP Verification</h2>
+        <p>Your One-Time Password (OTP) for verification is:</p>
+        <div class="otp">123456</div>
+        <p class="countdown">This OTP is valid for <span id="timer">2:00</span> minutes.</p>
+        <p>If you didn’t request this, please ignore this email.</p>
+        <a href="#" class="btn">Verify Now</a>
+        <div class="footer">© {{NAME}}. All rights reserved.</div>
+    </div>
+
+    <script>
+        function startCountdown(duration, display) {
+            let timer = duration, minutes, seconds;
+            let countdown = setInterval(function () {
+                minutes = Math.floor(timer / 60);
+                seconds = timer % 60;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+                display.textContent = minutes + ":" + seconds;
+                if (--timer < 0) {
+                    clearInterval(countdown);
+                    display.textContent = "Expired";
+                }
+            }, 1000);
+        }
+        window.onload = function () {
+            let countdownTime = 120, 
+                display = document.querySelector("#timer");
+            startCountdown(countdownTime, display);
+        };
+    </script>
+</body>
+</html>

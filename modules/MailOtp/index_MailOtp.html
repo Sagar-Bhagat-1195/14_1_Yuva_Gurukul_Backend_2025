@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Static Template</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        background: #f0f8ff;
+        font-size: 14px;
+      }
+      .container {
+        max-width: 680px;
+        margin: 0 auto;
+        padding: 45px 30px 60px;
+        background: #e6f1fb;
+        background-image: url(https://via.placeholder.com/800x452/005f73/ffffff?text=Blue+Background);
+        background-repeat: no-repeat;
+        background-size: 800px 452px;
+        background-position: top center;
+        font-size: 14px;
+        color: #434343;
+      }
+      header {
+        width: 100%;
+        text-align: center; /* Center the logo */
+      }
+      header img {
+        height: 80px; /* Adjust the logo size */
+        width: auto;
+        margin: 0 auto;
+      }
+      header .date {
+        font-size: 16px;
+        line-height: 30px;
+        color: #ffffff;
+        text-align: right;
+      }
+      main {
+        margin-top: 70px;
+        padding: 92px 30px 115px;
+        background: #ffffff;
+        border-radius: 30px;
+        text-align: center;
+      }
+      h1 {
+        font-size: 24px;
+        font-weight: 500;
+        color: #1f1f1f;
+        margin: 0;
+      }
+      .otp-text {
+        font-size: 16px;
+        font-weight: 500;
+        margin-top: 17px;
+      }
+      .otp-value {
+        margin-top: 60px;
+        font-size: 40px;
+        font-weight: 600;
+        letter-spacing: 25px;
+        color: #006f98;
+      }
+      .footer {
+        width: 100%;
+        max-width: 490px;
+        margin: 20px auto 0;
+        text-align: center;
+        border-top: 1px solid #e6ebf1;
+      }
+      .footer p {
+        margin: 0;
+        margin-top: 8px;
+        color: #434343;
+      }
+      .social-icons img {
+        width: 36px;
+        margin-left: 8px;
+      }
+      .footer p.copyright {
+        margin-top: 16px;
+        color: #434343;
+      }
+      .contact-info {
+        max-width: 400px;
+        margin: 0 auto;
+        margin-top: 90px;
+        text-align: center;
+        font-weight: 500;
+        color: #8c8c8c;
+      }
+      .contact-info a {
+        color: #499fb6;
+        text-decoration: none;
+      }
+      .input-field {
+        font-size: 5px;
+        padding: 10px;
+        margin: 10px 0;
+        width: 60%;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      .blue-button {
+        background-color: #006f98;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <table style="width: 100%; text-align: center;">
+          <a href="https://imgbb.com/">
+            <img
+              src="https://i.ibb.co/hxLnkLmQ/Dev-Sky-Logo.png"
+              alt="Dev-Sky-Logo"
+              border="0"
+            />
+          </a>
+        </table>
+      </header>
+
+      <main>
+        <div style="width: 100%; max-width: 489px; margin: 0 auto">
+          <h1>{{SUBJECT}}</h1>
+          <p class="otp-text">{{NAME}}</p>
+          <p class="otp-text">
+            Thank you for choosing Archisketch Company. Use the following OTP to
+            complete the procedure to change your email address. OTP is valid
+            for <span style="font-weight: 600">5 minutes</span>. Do not share
+            this code with others, including Archisketch employees.
+          </p>
+          <p class="otp-value">{{OTP}}</p>
+        </div>
+      </main>
+      <div class="contact-info">
+        <p>
+          Need help? Ask at
+          <a href="mailto:sagarbhagat00@gmail.com">sagarbhagat00@gmail.com</a> or visit
+          our <a href="#" target="_blank">Help Center</a>
+        </p>
+      </div>
+
+      <footer class="footer">
+        <p>DevSky Company</p>
+        <p>Surat Gurukul</p>
+        <div class="social-icons">
+          <a href="" target="_blank"
+            ><img
+              alt="Facebook"
+              src="https://via.placeholder.com/36x36/005f73/ffffff?text=F"
+          /></a>
+          <a href="" target="_blank"
+            ><img
+              alt="Instagram"
+              src="https://via.placeholder.com/36x36/005f73/ffffff?text=I"
+          /></a>
+          <a href="" target="_blank"
+            ><img
+              alt="Twitter"
+              src="https://via.placeholder.com/36x36/005f73/ffffff?text=T"
+          /></a>
+          <a href="" target="_blank"
+            ><img
+              alt="Youtube"
+              src="https://via.placeholder.com/36x36/005f73/ffffff?text=Y"
+          /></a>
+        </div>
+        <p class="copyright">Copyright © 2022 @DevSky. All rights reserved.</p>
+      </footer>
+    </div>
+  </body>
+</html>
