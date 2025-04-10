@@ -107,14 +107,17 @@ exports.SignUp = async (req, res) => {
     // Respond with only necessary data (avoid exposing sensitive fields)
     res.status(201).json({
       message: "User created successfully",
-      user: {
-        id: newUser._id,
-        name: newUser.name,
-        surname: newUser.surname,
-        phone: newUser.phone,
-        email: newUser.email,
-        authToken, // Send token separately
-      },
+      // user: {
+      //   id: newUser._id,
+      //   name: newUser.name,
+      //   surname: newUser.surname,
+      //   phone: newUser.phone,
+      //   email: newUser.email,
+      //   userRole: newUser.userRole,
+      //   authToken, // Send token separately
+      // },
+      user: newUser,
+      authToken, // Send token separately
       isSuccess: true,
     });
   } catch (error) {
@@ -257,25 +260,33 @@ exports.Update = async (req, res) => {
   }
 };
 
-// Delete User Route
+// Permanently Delete a User
 exports.delete = async (req, res) => {
   try {
     const userId = req.UserSecure_id || req.params.id;
 
+    if (!userId) {
+      return res.status(400).json({ message: "User ID is required", isSuccess: false });
+    }
+
     // Check if user exists
     const user = await User.findById(userId);
+
     if (!user) {
       return res.status(404).json({ message: "User not found", isSuccess: false });
     }
 
-    // Perform a soft-delete by disabling the user instead of permanently deleting
-    user.isEnabled = false; // Mark user as disabled
-    await user.save();
+    if (!user.isEnabled) {
+      return res.status(400).json({ message: "User is already disabled", isSuccess: false });
+    }
 
-    res.status(200).json({ message: "User disabled successfully", isSuccess: true });
+    // Delete user permanently
+    await User.findByIdAndDelete(userId);
+
+    res.status(200).json({ message: "User deleted permanently", isSuccess: true });
   } catch (error) {
-    console.error("Delete User Error:", error);
-    res.status(500).json({ message: "Server error", isSuccess: false });
+    console.error("Delete User Error:", error.message);
+    res.status(500).json({ message: "Internal server error", isSuccess: false });
   }
 };
 
@@ -298,8 +309,8 @@ exports.GetUser = async (req, res) => {
       if (data && data.toLowerCase() === "all") {
         console.log("Admin fetching all users...");
         // const users = await User.find().select("name email userRole");
-        const users = await User.find();
-        return res.status(200).json({ users, isSuccess: true });
+        const user = await User.find();
+        return res.status(200).json({ user, isSuccess: true, count: user.length });
       }
       else {
         // const user = await User.findById(userId).select("name email userRole");
@@ -307,7 +318,7 @@ exports.GetUser = async (req, res) => {
         if (!user) {
           return res.status(404).json({ message: "User not found", isSuccess: false });
         }
-        return res.status(200).json({ user, isSuccess: true });
+        return res.status(200).json({ user, isSuccess: true, count: user.length });
       }
     }
 
@@ -318,7 +329,8 @@ exports.GetUser = async (req, res) => {
       if (!user) {
         return res.status(404).json({ message: "User not found", isSuccess: false });
       }
-      return res.status(200).json({ user, isSuccess: true });
+      return res.status(200).json({ user, isSuccess: true, count: user.length });
+
     }
 
     return res.status(403).json({ message: "Unauthorized access", isSuccess: false });
