@@ -822,6 +822,50 @@
 					"response": []
 				},
 				{
+					"name": "isEnabled True False",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZTE5MzM3ZGE1ODYzYTY2MzE5Zjg3NSIsImlhdCI6MTc0MjgzNjUzNX0.DXFnzU6RQpvHnvFq-f5ZaNDnRZjyJTrYSiu7gH17p88",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"isEnabled\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/globalevent?id=67fce9370b6405e8d53d5a5f",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"globalevent"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "67fce9370b6405e8d53d5a5f"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Image_Upload_GlobalEvent",
 					"request": {
 						"auth": {
@@ -852,7 +896,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/globalevent/image/?id=67fce9370b6405e8d53d5a5f",
+							"raw": "http://localhost:3000/globalevent/image/?id=67fcec6e0b6405e8d53d5a74",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -866,7 +910,7 @@
 							"query": [
 								{
 									"key": "id",
-									"value": "67fce9370b6405e8d53d5a5f"
+									"value": "67fcec6e0b6405e8d53d5a74"
 								}
 							]
 						}
@@ -1048,7 +1092,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YzU4OTQ2ZmNlZjViNjViODcyY2Q2YiIsImlhdCI6MTc0MDk5ODk4Mn0.2IU4V4tdZHycUJBUnmqG4HjpN8yYZDAv5XEEgnui_ew",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZTE5MzM3ZGE1ODYzYTY2MzE5Zjg3NSIsImlhdCI6MTc0MjgzNjUzNX0.DXFnzU6RQpvHnvFq-f5ZaNDnRZjyJTrYSiu7gH17p88",
 									"type": "string"
 								}
 							]
@@ -1057,7 +1101,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"GlobalEventId\": \"67cc271b5cc83e30cef1bd4d\",\r\n    \"GetEventAllTicket\": true\r\n}",
+							"raw": "{\r\n    \"GlobalEventId\": \"67fce9370b6405e8d53d5a5f\",\r\n    \"GetEventAllTicket\": true\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
