@@ -20,9 +20,14 @@ const UserGlobalEventSchema = new mongoose.Schema(
     image: {
       type: String,
       trim: true,
-      default: "", // Default empty string if no image provided
+      default: " ", // Default empty string if no image provided
     },
     description: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    address: {
       type: String,
       required: true,
       trim: true,

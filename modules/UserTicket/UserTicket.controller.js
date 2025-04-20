@@ -261,14 +261,13 @@ exports.confirmUserTicket = async (req, res) => {
 exports.getAllUserEventsById = async (req, res) => {
   try {
     const userId = req.UserSecure_id; // Get user ID from authentication middleware
-    const GlobalEventId = req.body.GlobalEventId || req.params.GlobalEventId; // Extract GlobalEventId
-    const GetEventAllTicket = req.body.GetEventAllTicket === "true" || req.params.GetEventAllTicket === "true"; // Convert to boolean
+    const GlobalEventId = req.body.GlobalEventId || req.params.GlobalEventId;
+    const GetEventAllTicket = req.body.GetEventAllTicket|| req.params.GetEventAllTicket === "true";
 
     console.log("User ID:", userId);
     console.log("GlobalEventId:", GlobalEventId);
     console.log("GetEventAllTicket:", GetEventAllTicket);
 
-    // Validate required fields
     if (!userId) {
       return res.status(400).json({ success: false, message: "User ID is required" });
     }
@@ -276,29 +275,20 @@ exports.getAllUserEventsById = async (req, res) => {
       return res.status(400).json({ success: false, message: "GlobalEvent ID is required" });
     }
 
-    // Fetch event details
     const existingEvent = await UserGlobalEvent.findById(GlobalEventId).select("eventName fees");
     if (!existingEvent) {
       return res.status(404).json({ success: false, message: "Event not found" });
     }
 
-    let tickets; // Declare a variable to store the result
+    let tickets = [];
 
     if (GetEventAllTicket) {
-      // Fetch all tickets for this event
       tickets = await UserEventTicket.find({ GlobalEventId });
     } else {
-      // Find tickets matching userId and GlobalEventId
       tickets = await UserEventTicket.find({ userId, GlobalEventId });
     }
 
-    if (!tickets.length) {
-      return res.status(404).json({
-        success: false,
-        message: "No tickets found",
-      });
-    }
-
+    // Send success even if tickets array is empty
     res.status(200).json({
       success: true,
       tickets,
@@ -313,7 +303,6 @@ exports.getAllUserEventsById = async (req, res) => {
     });
   }
 };
-
 
 
 
