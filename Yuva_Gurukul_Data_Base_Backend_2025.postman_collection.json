@@ -21,7 +21,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"name\": \"sagar\",\r\n  \"surname\": \"Bhagat\",\r\n  \"phone\": \"800236235\",\r\n  \"email\": \"sagarbhagat00@gmail.com\",\r\n  \"password\": \"12345678\"\r\n}\r\n",
+							"raw": "{\r\n  \"name\": \"dev\",\r\n  \"surname\": \"Bhagat\",\r\n  \"phone\": \"900236235\",\r\n  \"email\": \"Dagarbhagat00@gmail.com\",\r\n  \"password\": \"12345678\"\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -442,6 +442,244 @@
 								{
 									"key": "position",
 									"value": "user"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "imageSlider",
+			"item": [
+				{
+					"name": "create Image Slider",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZTE5MzM3ZGE1ODYzYTY2MzE5Zjg3NSIsImlhdCI6MTc0MjgzNjUzNX0.DXFnzU6RQpvHnvFq-f5ZaNDnRZjyJTrYSiu7gH17p88",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"imageSlider 3 \",\r\n    \"subtitle\": \"subtitle 3\",\r\n    \"link\": \"\",\r\n    \"isActive\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/imageSlider",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"imageSlider"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateImageSliderById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZTE5MzM3ZGE1ODYzYTY2MzE5Zjg3NSIsImlhdCI6MTc0MjgzNjUzNX0.DXFnzU6RQpvHnvFq-f5ZaNDnRZjyJTrYSiu7gH17p88",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"imageSlider 1 update \",\r\n    \"subtitle\": \"subtitle 1\",\r\n    \"link\": \"\",\r\n    \"order\": 2,\r\n    \"isActive\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/imageSlider/681059c6c12e28bf24f8252f",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"imageSlider",
+								"681059c6c12e28bf24f8252f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteImageSliderById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZTE5MzM3ZGE1ODYzYTY2MzE5Zjg3NSIsImlhdCI6MTc0MjgzNjUzNX0.DXFnzU6RQpvHnvFq-f5ZaNDnRZjyJTrYSiu7gH17p88",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/imageSlider/681061e9c12e28bf24f82546",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"imageSlider",
+								"681061e9c12e28bf24f82546"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getImageSliderById",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZTE5MzM3ZGE1ODYzYTY2MzE5Zjg3NSIsImlhdCI6MTc0MjgzNjUzNX0.DXFnzU6RQpvHnvFq-f5ZaNDnRZjyJTrYSiu7gH17p88",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MmNhYjEyYTFjYjYzMDNlODk2ODgzNCIsImlhdCI6MTczMDk4MDYyNn0.5hx6mEwLJrAV5JpefQuvFv20PqQC0cG6DJoPzAxow1c",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/imageSlider",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"imageSlider"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Image_Upload_ImageSlider",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZTE5MzM3ZGE1ODYzYTY2MzE5Zjg3NSIsImlhdCI6MTc0MjgzNjUzNX0.DXFnzU6RQpvHnvFq-f5ZaNDnRZjyJTrYSiu7gH17p88",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/Bhaktinandan/Pictures/Screenshots/Screenshot 2025-02-08 101513.png"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/imageSlider/image/?id=6810b71d8c35eaf0308db63b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"imageSlider",
+								"image",
+								""
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "6810b71d8c35eaf0308db63b"
 								}
 							]
 						}

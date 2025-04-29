@@ -33,6 +33,8 @@ const UserTicketRoutes = require('./modules/UserTicket/UserTicket.route');
 
 const GmailTicketSendRoutes = require('./modules/GmailTicketSend/GmailTicketSend.route');
 
+const imageSliderRoutes = require('./modules/imageSlider/imageSlider.route'); // Import your image routes
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -57,6 +59,8 @@ app.use('/globalevent', UserGlobalEventRoutes);
 app.use('/userticket', UserTicketRoutes);
 
 app.use('/gmailticketsend', GmailTicketSendRoutes);
+// Use image routes
+app.use('/imageSlider', imageSliderRoutes); // This line is commented out
 
 
 
