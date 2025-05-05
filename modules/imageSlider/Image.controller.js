@@ -27,7 +27,7 @@ exports.uploadImage = async (req, res) => {
 
     // Remove old image if it exists
     if (slider.image) {
-      const oldImagePath = path.join(process.cwd(), 'public', 'images','YuvaGurukul', 'ImageSlider', slider.image);
+      const oldImagePath = path.join(process.cwd(), 'public', 'images', 'YuvaGurukul', 'ImageSlider', slider.image);
       console.log(`Old image path: ${oldImagePath}`);
 
       try {
@@ -50,5 +50,39 @@ exports.uploadImage = async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: error.message });
+  }
+};
+
+
+// Remove ImageSlider Image by ID
+exports.RemoveImageById = async (id) => {
+  console.log('Removing image file for ImageSlider...');
+
+  if (!id) throw new Error('ImageSlider ID is required');
+
+  const slider = await ImageSlider.findById(id);
+  if (!slider) throw new Error('ImageSlider not found');
+
+  if (slider.image) {
+    const imagePath = path.join(
+      process.cwd(),
+      'public',
+      'images',
+      'YuvaGurukul',
+      'ImageSlider',
+      slider.image
+    );
+
+    try {
+      await fs.promises.access(imagePath);
+      await fs.promises.unlink(imagePath);
+      console.log('Image file deleted successfully');
+    } catch (err) {
+      if (err.code !== 'ENOENT') {
+        throw new Error('Error deleting image from storage: ' + err.message);
+      } else {
+        console.warn('Image file not found on disk');
+      }
+    }
   }
 };

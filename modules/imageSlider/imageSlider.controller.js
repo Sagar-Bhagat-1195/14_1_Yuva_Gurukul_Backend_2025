@@ -1,4 +1,6 @@
 const ImageSlider = require("./imageSlider.model");
+const {RemoveImageById} = require ("./Image.controller"); // Adjust the path as necessary
+
 
 // CREATE - With automatic order assignment
 exports.createImageSlider = async (req, res) => {
@@ -36,10 +38,10 @@ exports.getImageSliderById = async (req, res) => {
     try {
         // const { id } = req.params;
 
-         // Check if id is passed in params, query, or body
-         const id = req.params.id || req.query.id || req.body.id;
-         console.log(`[DEBUG] Attempting to process ID: ${id}`);
-         
+        // Check if id is passed in params, query, or body
+        const id = req.params.id || req.query.id || req.body.id;
+        console.log(`[DEBUG] Attempting to process ID: ${id}`);
+
 
         if (id) {
             const image = await ImageSlider.findById(id);
@@ -107,7 +109,7 @@ exports.updateImageSliderById = async (req, res) => {
             isSuccess: true,
             message: "Image updated successfully",
             data: updatedImage,
-            Allimages : Allimages
+            Allimages: Allimages
         });
     } catch (error) {
         res.status(500).json({
@@ -123,27 +125,41 @@ exports.updateImageSliderById = async (req, res) => {
 // DELETE - With automatic reordering
 exports.deleteImageSliderById = async (req, res) => {
     try {
-        // const { id } = req.params;
         const id = req.params.id || req.query.id || req.body.id;
+
+        if (!id) {
+            return res.status(400).json({
+                isSuccess: false,
+                message: 'ImageSlider ID is required',
+            });
+        }
+
+        // Delete image from filesystem
+        await RemoveImageById(id);
+
+        // Delete record from DB
         const deletedImage = await ImageSlider.findByIdAndDelete(id);
 
         if (!deletedImage) {
             return res.status(404).json({
                 isSuccess: false,
-                message: "Image not found"
+                message: 'Image not found',
             });
         }
+        const Allimages = await ImageSlider.find().sort({ order: 1 });
 
         res.status(200).json({
             isSuccess: true,
-            message: "Image deleted and order sequence updated",
-            data: deletedImage
+            message: 'Image and record deleted successfully',
+            data: deletedImage,
+            Allimages: Allimages
         });
     } catch (error) {
+        console.error('Error deleting image slider:', error);
         res.status(500).json({
             isSuccess: false,
-            message: "Failed to delete image",
-            error: error.message
+            message: 'Failed to delete image',
+            error: error.message,
         });
     }
 };
