@@ -807,7 +807,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/blog/6819a7d3aca7a4a156966fc9",
+							"raw": "http://localhost:3000/blog/6819a7e9aca7a4a156966fcc",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -815,7 +815,7 @@
 							"port": "3000",
 							"path": [
 								"blog",
-								"6819a7d3aca7a4a156966fc9"
+								"6819a7e9aca7a4a156966fcc"
 							]
 						}
 					},
@@ -855,15 +855,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/Blog/6819f9c26cb0101067a989e5",
+							"raw": "http://localhost:3000/Blog",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "3000",
 							"path": [
-								"Blog",
-								"6819f9c26cb0101067a989e5"
+								"Blog"
 							]
 						}
 					},
@@ -890,21 +889,21 @@
 								{
 									"key": "image",
 									"type": "file",
-									"src": "/C:/Users/Bhaktinandan/Pictures/Screenshots/Screenshot 2024-12-29 220221.png"
+									"src": "/C:/Users/Bhaktinandan/Documents/Lightshot/Screenshot_47.png"
 								}
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3000/imageSlider/Blog/",
+							"raw": "http://localhost:3000/Blog/image/6819a7e9aca7a4a156966fcc",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "3000",
 							"path": [
-								"imageSlider",
 								"Blog",
-								""
+								"image",
+								"6819a7e9aca7a4a156966fcc"
 							]
 						}
 					},
