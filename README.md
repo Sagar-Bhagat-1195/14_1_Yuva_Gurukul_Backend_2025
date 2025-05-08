@@ -48,4 +48,7 @@ Finel Link  :mongodb+srv://sagarbhagat00:192837465devsky@cluster0.qorju.mongodb.
  npm show multer version  || 1.4.5-lts.2
  npm install multer
 
+ npm install slugify
+ 
+
 

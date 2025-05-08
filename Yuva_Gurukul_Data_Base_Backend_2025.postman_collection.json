@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "5fc9e17c-05b8-4e88-8c12-f4bfc33f295d",
+		"_postman_id": "e662d03d-c04c-4872-a682-94f6ecf3072b",
 		"name": "Yuva_Gurukul_Data_Base_Backend_2025",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16467157"
 	},
 	"item": [
 		{
@@ -476,7 +477,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"title\": \"imageSlider 3 \",\r\n    \"subtitle\": \"subtitle 3\",\r\n    \"link\": \"\",\r\n    \"isActive\": true\r\n}",
+							"raw": "{\r\n    \"title\": \"imageSlider 1 update \",\r\n    \"subtitle\": \"subtitle 1\",\r\n    \"link\": \"\",\r\n    \"order\": 2,\r\n    \"isActive\": true\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -573,7 +574,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/imageSlider/681061e9c12e28bf24f82546",
+							"raw": "http://localhost:3000/imageSlider/68144e598f2318a162fc45f9",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -581,7 +582,7 @@
 							"port": "3000",
 							"path": [
 								"imageSlider",
-								"681061e9c12e28bf24f82546"
+								"68144e598f2318a162fc45f9"
 							]
 						}
 					},
@@ -655,14 +656,9 @@
 								{
 									"key": "image",
 									"type": "file",
-									"src": "/C:/Users/Bhaktinandan/Pictures/Screenshots/Screenshot 2025-02-08 101513.png"
+									"src": "/C:/Users/Bhaktinandan/Pictures/Screenshots/Screenshot 2024-12-29 220221.png"
 								}
-							],
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
+							]
 						},
 						"url": {
 							"raw": "http://localhost:3000/imageSlider/image/?id=6810b71d8c35eaf0308db63b",
@@ -681,6 +677,234 @@
 									"key": "id",
 									"value": "6810b71d8c35eaf0308db63b"
 								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Blog",
+			"item": [
+				{
+					"name": "create_Blog",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZTE5MzM3ZGE1ODYzYTY2MzE5Zjg3NSIsImlhdCI6MTc0MjgzNjUzNX0.DXFnzU6RQpvHnvFq-f5ZaNDnRZjyJTrYSiu7gH17p88",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"A Beginner’s Guide to MongoDB\",   //required\r\n  \"content\": \"MongoDB is a popular NoSQL database that stores data in flexible, JSON-like documents. This guide will help you get started with basic CRUD operations...\",  //required\r\n  \"author\": \"Sara Lee\", ///required\r\n  \"slug\": \"beginners-guide-mongodb\",  // optional; auto-generated if not provided\r\n  \"category\": \"Database\",\r\n  \"tags\": [\"mongodb\", \"database\", \"nosql\", \"backend\"],  //// optional\r\n  \"image\": \"https://example.com/images/mongodb-guide.jpg\",  // optional\r\n  \"isEnabled\": true\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/Blog",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"Blog"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update_Blog",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZTE5MzM3ZGE1ODYzYTY2MzE5Zjg3NSIsImlhdCI6MTc0MjgzNjUzNX0.DXFnzU6RQpvHnvFq-f5ZaNDnRZjyJTrYSiu7gH17p88",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"UPDATE A Beginner’s Guide to MongoDB\",\r\n  \"content\": \"UPDATE MongoDB is a popular NoSQL database that stores data in flexible, JSON-like documents. This guide will help you get started with basic CRUD operations...\",\r\n  \"author\": \"update Sara Lee\",\r\n  \"slug\": \"beginners-guide-mongodb\",  // optional; auto-generated if not provided\r\n  \"category\": \"Database\",\r\n  \"tags\": [\"mongodb\", \"database\", \"nosql\", \"backend\"],\r\n  \"image\": \"https://example.com/images/mongodb-guide.jpg\",  // optional\r\n  \"isEnabled\": true\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/Blog/6819a78caca7a4a156966fc6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"Blog",
+								"6819a78caca7a4a156966fc6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_Blog",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZTE5MzM3ZGE1ODYzYTY2MzE5Zjg3NSIsImlhdCI6MTc0MjgzNjUzNX0.DXFnzU6RQpvHnvFq-f5ZaNDnRZjyJTrYSiu7gH17p88",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/blog/6819a7d3aca7a4a156966fc9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"blog",
+								"6819a7d3aca7a4a156966fc9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getBlogsById_Slug_All",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZTE5MzM3ZGE1ODYzYTY2MzE5Zjg3NSIsImlhdCI6MTc0MjgzNjUzNX0.DXFnzU6RQpvHnvFq-f5ZaNDnRZjyJTrYSiu7gH17p88",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MmNhYjEyYTFjYjYzMDNlODk2ODgzNCIsImlhdCI6MTczMDk4MDYyNn0.5hx6mEwLJrAV5JpefQuvFv20PqQC0cG6DJoPzAxow1c",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    // API\r\n    //http://localhost:3000/Blog\r\n    // http://localhost:3000/blog?id=6819f9c26cb0101067a989e5\r\n\r\n    //---------------------------------------\r\n//   \"page\": 2,\r\n//   \"limit\": 1\r\n  //-------------------------------------------\r\n//   \"slug\":\"one-code-tips\"\r\n// \"category\":\"React\"\r\n// \"tag\": \"coding\" \r\n\r\n//   \"search\": \"Writing\" //  // search term for title or content\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/Blog/6819f9c26cb0101067a989e5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"Blog",
+								"6819f9c26cb0101067a989e5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Image_Upload_Blog",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZTE5MzM3ZGE1ODYzYTY2MzE5Zjg3NSIsImlhdCI6MTc0MjgzNjUzNX0.DXFnzU6RQpvHnvFq-f5ZaNDnRZjyJTrYSiu7gH17p88",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/Bhaktinandan/Pictures/Screenshots/Screenshot 2024-12-29 220221.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/imageSlider/Blog/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"imageSlider",
+								"Blog",
+								""
 							]
 						}
 					},
@@ -985,7 +1209,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YzU4OTQ2ZmNlZjViNjViODcyY2Q2YiIsImlhdCI6MTc0MDk5ODk4Mn0.2IU4V4tdZHycUJBUnmqG4HjpN8yYZDAv5XEEgnui_ew",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZTE5MzM3ZGE1ODYzYTY2MzE5Zjg3NSIsImlhdCI6MTc0MjgzNjUzNX0.DXFnzU6RQpvHnvFq-f5ZaNDnRZjyJTrYSiu7gH17p88",
 									"type": "string"
 								}
 							]
@@ -1126,12 +1350,7 @@
 									"type": "file",
 									"src": "/C:/Users/Bhaktinandan/Pictures/Screenshots/Screenshot 2025-02-03 105542.png"
 								}
-							],
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
+							]
 						},
 						"url": {
 							"raw": "http://localhost:3000/globalevent/image/?id=67fcec6e0b6405e8d53d5a74",
