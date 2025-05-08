@@ -1,5 +1,6 @@
 const Blog = require('./blog.model');
 const slugify = require('slugify');
+const { RemoveImageById } = require("./Image.controller"); // Adjust the path as necessary
 
 // Enhanced response handler
 const sendResponse = (res, options) => {
@@ -65,7 +66,7 @@ exports.getBlogsById_Slug_All = async (req, res) => {
     console.log(req.body);
 
     try {
-    
+
         const source = { ...req.query, ...req.body };  // merge both
         const {
             page = 1,
@@ -134,8 +135,8 @@ exports.getBlogsById_Slug_All = async (req, res) => {
 // --------------------------------------------------------------------
 exports.updateBlog = async (req, res) => {
     try {
-       // Check if id is passed in params, query, or body
-       const id = req.params.id || req.query.id || req.body.id;
+        // Check if id is passed in params, query, or body
+        const id = req.params.id || req.query.id || req.body.id;
         let updates = req.body;
 
         if (!id) {
@@ -228,6 +229,9 @@ exports.deleteBlog = async (req, res) => {
                 message: 'Blog ID is required'
             });
         }
+
+        // Delete image from filesystem
+        await RemoveImageById(id);
 
         const blog = await Blog.findByIdAndDelete(id);
 
