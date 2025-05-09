@@ -37,7 +37,13 @@ const imageSliderRoutes = require('./modules/imageSlider/imageSlider.route'); //
 
 const BlogRoutes = require('./modules/Blog/blog.route'); // Import your image routes
 
- const VideoRoutes = require('./modules/Video/Video_Gallery.route'); // Import your image routes
+const VideoRoutes = require('./modules/Video/Video_Gallery.route'); // Import your image routes
+
+const PhotoRoutes = require('./modules/Photo/Photo.route'); // Import your image routes
+
+const FooterRoutes = require('./modules/Footer/Footer.route'); // Import your image routes
+
+const AboutRoutes = require('./modules/About/About.route'); // Import your image routes 
 
 
 
@@ -66,10 +72,15 @@ app.use('/userticket', UserTicketRoutes);
 app.use('/gmailticketsend', GmailTicketSendRoutes);
 // Use image routes
 app.use('/imageSlider', imageSliderRoutes);
-app.use('/blog', BlogRoutes); 
+app.use('/blog', BlogRoutes);
 
-app.use('/video', VideoRoutes); 
+app.use('/video', VideoRoutes);
 
+app.use('/photo', PhotoRoutes); // Use photo routes
+
+app.use('/footer', FooterRoutes); // Use footer routes
+
+app.use('/about', AboutRoutes); // Use about routes
 
 
 
