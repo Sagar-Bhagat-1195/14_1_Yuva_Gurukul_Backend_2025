@@ -37,6 +37,8 @@ const imageSliderRoutes = require('./modules/imageSlider/imageSlider.route'); //
 
 const BlogRoutes = require('./modules/Blog/blog.route'); // Import your image routes
 
+ const VideoRoutes = require('./modules/Video/Video_Gallery.route'); // Import your image routes
+
 
 
 // view engine setup
@@ -63,8 +65,10 @@ app.use('/userticket', UserTicketRoutes);
 
 app.use('/gmailticketsend', GmailTicketSendRoutes);
 // Use image routes
-app.use('/imageSlider', imageSliderRoutes); // This line is commented out
-app.use('/blog', BlogRoutes); // This line is commented out
+app.use('/imageSlider', imageSliderRoutes);
+app.use('/blog', BlogRoutes); 
+
+app.use('/video', VideoRoutes); 
 
 
 
@@ -88,3 +92,12 @@ app.use(function (err, req, res, next) {
 });
 
 module.exports = app;
+
+
+/*
+figma : Link 
+https://www.figma.com/design/TfJEYxtNSZwiAqQzH4hwUQ/Surat-Gurukul?node-id=0-1&p=f&t=kSnUDWvV5SfKl7L9-0
+https://mui.com/store/previews/minimal-dashboard-free/
+
+gajerajenis66@gmail.com
+*/
