@@ -685,6 +685,192 @@
 			]
 		},
 		{
+			"name": "Video",
+			"item": [
+				{
+					"name": "create_Video",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZTE5MzM3ZGE1ODYzYTY2MzE5Zjg3NSIsImlhdCI6MTc0MjgzNjUzNX0.DXFnzU6RQpvHnvFq-f5ZaNDnRZjyJTrYSiu7gH17p88",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Sample Video\",\r\n  \"title\": \"How to Use Postman\",\r\n  \"type\": \"tutorial\",\r\n  \"url\": \"https://example.com/video\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/video",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"video"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update_Video",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZTE5MzM3ZGE1ODYzYTY2MzE5Zjg3NSIsImlhdCI6MTc0MjgzNjUzNX0.DXFnzU6RQpvHnvFq-f5ZaNDnRZjyJTrYSiu7gH17p88",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"UPDATE Sample Video\",\r\n  \"title\": \"1 UPDATE How to Use Postman\",\r\n  \"type\": \"2 UPDATEtutorial\",\r\n  \"url\": \"https://example.com/video789\",\r\n  \"isEnabled\":true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/video/681db5e4f3f18b9673964b3c",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"video",
+								"681db5e4f3f18b9673964b3c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete Video",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZTE5MzM3ZGE1ODYzYTY2MzE5Zjg3NSIsImlhdCI6MTc0MjgzNjUzNX0.DXFnzU6RQpvHnvFq-f5ZaNDnRZjyJTrYSiu7gH17p88",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/video/681db67dbf02e54f89d6ddab",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"video",
+								"681db67dbf02e54f89d6ddab"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Video And Id,Type",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZTE5MzM3ZGE1ODYzYTY2MzE5Zjg3NSIsImlhdCI6MTc0MjgzNjUzNX0.DXFnzU6RQpvHnvFq-f5ZaNDnRZjyJTrYSiu7gH17p88",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MmNhYjEyYTFjYjYzMDNlODk2ODgzNCIsImlhdCI6MTczMDk4MDYyNn0.5hx6mEwLJrAV5JpefQuvFv20PqQC0cG6DJoPzAxow1c",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    // \"type\":\"Web\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/video",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"video"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Blog",
 			"item": [
 				{
@@ -754,7 +940,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"title\": \"UPDATE A Beginner’s Guide to MongoDB\",\r\n  \"content\": \"UPDATE MongoDB is a popular NoSQL database that stores data in flexible, JSON-like documents. This guide will help you get started with basic CRUD operations...\",\r\n  \"author\": \"update Sara Lee\",\r\n  \"slug\": \"beginners-guide-mongodb\",  // optional; auto-generated if not provided\r\n  \"category\": \"Database\",\r\n  \"tags\": [\"mongodb\", \"database\", \"nosql\", \"backend\"],\r\n  \"image\": \"https://example.com/images/mongodb-guide.jpg\",  // optional\r\n  \"isEnabled\": true\r\n}\r\n",
+							"raw": "{\r\n  \"title\": \"UPDATE A Beginner’s Guide to MongoDB\",\r\n  \"content\": \"UPDATE MongoDB is a popular NoSQL database that stores data in flexible, JSON-like documents. This guide will help you get started with basic CRUD operations...\",\r\n  \"author\": \"update Sara Lee\",\r\n  \"slug\": \"beginners-guide-mongodb\",  // optional; auto-generated if not provided\r\n  \"category\": \"Database\",\r\n  \"tags\": [\"mongodb\", \"database\", \"nosql\", \"backend\"],\r\n  \"image\": \"https://example.com/images/mongodb-guide.jpg\",  // optional\r\n  \"isEnabled\": false\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
