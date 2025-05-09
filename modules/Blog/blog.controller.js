@@ -86,7 +86,8 @@ exports.getBlogsById_Slug_All = async (req, res) => {
         console.log(`[DEBUG] Attempting to process ID: ${id}`);
 
         // Build query
-        const query = { isEnabled: true };
+        // const query = { isEnabled: true };
+        const query={};
 
         if (id) query._id = id;
         if (slug) query.slug = slug;
