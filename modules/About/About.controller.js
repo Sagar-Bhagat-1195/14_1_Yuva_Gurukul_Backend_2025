@@ -70,13 +70,19 @@ exports.updateAbout = async (req, res) => {
     const stringFields = ['name', 'title', 'type', 'description'];
 
     stringFields.forEach(field => {
-      if (req.body[field] !== undefined) {
+      if (typeof req.body[field] === 'string') {
         updates[field] = req.body[field].trim();
       }
     });
 
+    // Properly handle isEnabled as boolean
     if (req.body.isEnabled !== undefined) {
-      updates.isEnabled = Boolean(req.body.isEnabled);
+      const isEnabled = req.body.isEnabled;
+      if (typeof isEnabled === 'string') {
+        updates.isEnabled = isEnabled === 'true' || isEnabled === '1';
+      } else {
+        updates.isEnabled = Boolean(isEnabled);
+      }
     }
 
     const updatedAbout = await About.findByIdAndUpdate(id, updates, { new: true });
@@ -91,6 +97,8 @@ exports.updateAbout = async (req, res) => {
     return res.status(500).json({ isSuccess: false, message: "Server Error", error: error.message });
   }
 };
+
+
 
 exports.deleteAbout = async (req, res) => {
   const id = req.params.id || req.query.id || req.body.id;
