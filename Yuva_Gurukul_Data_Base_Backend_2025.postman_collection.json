@@ -871,6 +871,733 @@
 			]
 		},
 		{
+			"name": "Photo",
+			"item": [
+				{
+					"name": "create_Photo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZTE5MzM3ZGE1ODYzYTY2MzE5Zjg3NSIsImlhdCI6MTc0MjgzNjUzNX0.DXFnzU6RQpvHnvFq-f5ZaNDnRZjyJTrYSiu7gH17p88",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Sample Photo\",\r\n    \"type\": \"Nature\",\r\n    \"image\": \"https://example.com/photo3.jpg\",\r\n    \"description\": \"A beautiful mountain photo.\",\r\n    \"isEnabled\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/photo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"photo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update_Photo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZTE5MzM3ZGE1ODYzYTY2MzE5Zjg3NSIsImlhdCI6MTc0MjgzNjUzNX0.DXFnzU6RQpvHnvFq-f5ZaNDnRZjyJTrYSiu7gH17p88",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"update 1 Sample Photo\",\r\n    \"type\": \"update v2Nature\",\r\n    \"image\": \"https://example.com/photo333.jpg\",\r\n    \"description\": \"A beautiful mountain photo.\",\r\n    \"isEnabled\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/Photo/681dd214038bf6caa483b929",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"Photo",
+								"681dd214038bf6caa483b929"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete Photo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZTE5MzM3ZGE1ODYzYTY2MzE5Zjg3NSIsImlhdCI6MTc0MjgzNjUzNX0.DXFnzU6RQpvHnvFq-f5ZaNDnRZjyJTrYSiu7gH17p88",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/Photo/681dd122810b5bb7171d83a4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"Photo",
+								"681dd122810b5bb7171d83a4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All  Photo And Id,Type",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZTE5MzM3ZGE1ODYzYTY2MzE5Zjg3NSIsImlhdCI6MTc0MjgzNjUzNX0.DXFnzU6RQpvHnvFq-f5ZaNDnRZjyJTrYSiu7gH17p88",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MmNhYjEyYTFjYjYzMDNlODk2ODgzNCIsImlhdCI6MTczMDk4MDYyNn0.5hx6mEwLJrAV5JpefQuvFv20PqQC0cG6DJoPzAxow1c",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    // \"type\":\"God\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/photo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"photo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Image_Upload_Photo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZTE5MzM3ZGE1ODYzYTY2MzE5Zjg3NSIsImlhdCI6MTc0MjgzNjUzNX0.DXFnzU6RQpvHnvFq-f5ZaNDnRZjyJTrYSiu7gH17p88",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/Bhaktinandan/Downloads/image 5.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/photo/image/681dd122810b5bb7171d83a4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"photo",
+								"image",
+								"681dd122810b5bb7171d83a4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "About",
+			"item": [
+				{
+					"name": "create About",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZTE5MzM3ZGE1ODYzYTY2MzE5Zjg3NSIsImlhdCI6MTc0MjgzNjUzNX0.DXFnzU6RQpvHnvFq-f5ZaNDnRZjyJTrYSiu7gH17p88",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"21Sample Photo\",\r\n  \"title\": \"32Nature\",\r\n  \"type\": \"abc\",\r\n  \"description\": \"ddd beautiful mountain photo.\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/about",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"about"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update_About",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZTE5MzM3ZGE1ODYzYTY2MzE5Zjg3NSIsImlhdCI6MTc0MjgzNjUzNX0.DXFnzU6RQpvHnvFq-f5ZaNDnRZjyJTrYSiu7gH17p88",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"update 21Sample Photo\",\r\n    \"title\": \"132Nature\",\r\n    \"type\": \"2abc\",\r\n    \"description\": \"3ddd beautiful mountain photo.\",\r\n    \"isEnabled\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/About/681e3417f7e675b14ec932d2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"About",
+								"681e3417f7e675b14ec932d2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete About",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZTE5MzM3ZGE1ODYzYTY2MzE5Zjg3NSIsImlhdCI6MTc0MjgzNjUzNX0.DXFnzU6RQpvHnvFq-f5ZaNDnRZjyJTrYSiu7gH17p88",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/About/681e3417f7e675b14ec932d2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"About",
+								"681e3417f7e675b14ec932d2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All  About",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZTE5MzM3ZGE1ODYzYTY2MzE5Zjg3NSIsImlhdCI6MTc0MjgzNjUzNX0.DXFnzU6RQpvHnvFq-f5ZaNDnRZjyJTrYSiu7gH17p88",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MmNhYjEyYTFjYjYzMDNlODk2ODgzNCIsImlhdCI6MTczMDk4MDYyNn0.5hx6mEwLJrAV5JpefQuvFv20PqQC0cG6DJoPzAxow1c",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    // \"type\":\"b\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/About",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"About"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Image_Upload_Photo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZTE5MzM3ZGE1ODYzYTY2MzE5Zjg3NSIsImlhdCI6MTc0MjgzNjUzNX0.DXFnzU6RQpvHnvFq-f5ZaNDnRZjyJTrYSiu7gH17p88",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/Bhaktinandan/Downloads/image 5.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/photo/image/681dd122810b5bb7171d83a4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"photo",
+								"image",
+								"681dd122810b5bb7171d83a4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Footer",
+			"item": [
+				{
+					"name": "create_Footer",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZTE5MzM3ZGE1ODYzYTY2MzE5Zjg3NSIsImlhdCI6MTc0MjgzNjUzNX0.DXFnzU6RQpvHnvFq-f5ZaNDnRZjyJTrYSiu7gH17p88",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"DevSky Footer\",\r\n  \"description\": \"This is the footer of the DevSky website.\",\r\n  \"logo\": \"https://example.com/logo.png\",\r\n  \"address\": \"123 Developer Lane, Code City\",\r\n  \"phone\": \"+1234567890\",\r\n  \"email\": \"info@devsky.com\",\r\n  \"map\": \"https://goo.gl/maps/xyz\",\r\n  \"isEnabled\": true,\r\n  \"socialLinks\": [\r\n    {\r\n      \"platform\": \"Facebook\",\r\n      \"url\": \"https://facebook.com/devsky\",\r\n      \"icon\": \"facebook-icon.png\"\r\n    },\r\n    {\r\n      \"platform\": \"LinkedIn\",\r\n      \"url\": \"https://linkedin.com/company/devsky\",\r\n      \"icon\": \"linkedin-icon.png\"\r\n    }\r\n  ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/footer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"footer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Footer Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZTE5MzM3ZGE1ODYzYTY2MzE5Zjg3NSIsImlhdCI6MTc0MjgzNjUzNX0.DXFnzU6RQpvHnvFq-f5ZaNDnRZjyJTrYSiu7gH17p88",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"update DevSky Footer\",\r\n  \"description\": \"update This is the footer of the DevSky website.\",\r\n  \"logo\": \"https://example.com/logo.png\",\r\n  \"address\": \"123 Developer Lane, Code City\",\r\n  \"phone\": \"+1234567890\",\r\n  \"email\": \"info@devsky.com\",\r\n  \"map\": \"https://goo.gl/maps/xyz\",\r\n  \"isEnabled\": false,\r\n  \"socialLinks\": [\r\n    {\r\n      \"platform\": \"Facebook\",\r\n      \"url\": \"https://facebook.com/devsky\",\r\n      \"icon\": \"facebook-icon.png\"\r\n    },\r\n    {\r\n      \"platform\": \"LinkedIn Update\",\r\n      \"url\": \"https://linkedin.com/company/devsky\",\r\n      \"icon\": \"linkedin-icon.png\"\r\n    }\r\n  ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/footer/681e2b58b0803ab2b476e96e",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"footer",
+								"681e2b58b0803ab2b476e96e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "putSocialLinks Footer",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZTE5MzM3ZGE1ODYzYTY2MzE5Zjg3NSIsImlhdCI6MTc0MjgzNjUzNX0.DXFnzU6RQpvHnvFq-f5ZaNDnRZjyJTrYSiu7gH17p88",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"socialLinks\": [\r\n    {\r\n      \"platform\": \"Twitter\",\r\n      \"url\": \"https://twitter.com/devsky\",\r\n      \"icon\": \"twitter-icon.png\"\r\n    },\r\n    {\r\n      \"platform\": \"Instagram\",\r\n      \"url\": \"https://instagram.com/devsky\",\r\n      \"icon\": \"instagram-icon.png\"\r\n    }\r\n  ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/footer/SocialLinks/681de552d12e2481cb2b6fb7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"footer",
+								"SocialLinks",
+								"681de552d12e2481cb2b6fb7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete Footer",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZTE5MzM3ZGE1ODYzYTY2MzE5Zjg3NSIsImlhdCI6MTc0MjgzNjUzNX0.DXFnzU6RQpvHnvFq-f5ZaNDnRZjyJTrYSiu7gH17p88",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/footer/681e2876609be28e6981840d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"footer",
+								"681e2876609be28e6981840d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Footer And Id,Type",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZTE5MzM3ZGE1ODYzYTY2MzE5Zjg3NSIsImlhdCI6MTc0MjgzNjUzNX0.DXFnzU6RQpvHnvFq-f5ZaNDnRZjyJTrYSiu7gH17p88",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MmNhYjEyYTFjYjYzMDNlODk2ODgzNCIsImlhdCI6MTczMDk4MDYyNn0.5hx6mEwLJrAV5JpefQuvFv20PqQC0cG6DJoPzAxow1c",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    // \"type\":\"God\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/footer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"footer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Image_Upload_Photo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZTE5MzM3ZGE1ODYzYTY2MzE5Zjg3NSIsImlhdCI6MTc0MjgzNjUzNX0.DXFnzU6RQpvHnvFq-f5ZaNDnRZjyJTrYSiu7gH17p88",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/Bhaktinandan/Documents/Lightshot/Screenshot_24.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/Footer/image/681e2b58b0803ab2b476e96e",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"Footer",
+								"image",
+								"681e2b58b0803ab2b476e96e"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Blog",
 			"item": [
 				{

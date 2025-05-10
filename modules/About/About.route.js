@@ -10,8 +10,8 @@ const UserSecure = require("../user/user.secure")
 // Routes for handling abouts
 router.post("/", UserSecure,aboutController.createAbout);
 router.get("/:id?",UserSecure, aboutController.getAboutByIdOrAll);
-// router.put("/:id",UserSecure, aboutController.updateAbout);
-// router.delete("/:id",UserSecure, aboutController.deleteAbout);
+router.put("/:id",UserSecure, aboutController.updateAbout);
+router.delete("/:id",UserSecure, aboutController.deleteAbout);
 
 
 
