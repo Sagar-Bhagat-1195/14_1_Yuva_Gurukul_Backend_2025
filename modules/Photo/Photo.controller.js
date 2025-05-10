@@ -7,10 +7,10 @@ exports.addPhoto = [
   async (req, res) => {
     console.log("addPhoto: Adding a new photo")
     try {
-      const { name, type = 'General', image, description, isEnabled = true } = req.body;
+      const { name, type = 'General', image = "", description, isEnabled = true } = req.body;
 
       // Basic validation
-      if (!name || !image) {
+      if (!name) {
         return res.status(400).json({
           isSuccess: false,
           message: 'Name and image URL are required.'
