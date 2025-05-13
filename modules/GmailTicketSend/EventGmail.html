@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yuva Gurukul Event Ticket - {{NAME}}</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        max-width: 480px;
+        margin: 20px auto;
+        background: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+      .logo {
+        margin-bottom: 15px;
+      }
+      .otp {
+        font-size: 32px;
+        font-weight: bold;
+        letter-spacing: 4px;
+        color: #333;
+        margin: 20px 0;
+      }
+      .countdown {
+        font-size: 16px;
+        color: #ff0000;
+      }
+      .footer {
+        margin-top: 20px;
+        font-size: 12px;
+        color: #777;
+      }
+      .btn {
+        display: inline-block;
+        margin-top: 10px;
+        padding: 10px 20px;
+        background: #007bff;
+        color: #ffffff;
+        text-decoration: none;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Event Logo -->
+      <div class="logo">
+        <a href="{{IMAGE}}">
+          <img src="{{IMAGE}}" alt="Yuva Gurukul Logo" width="150" />
+        </a>
+        <!-- ../public/images/YuvaGurukul/GlobalEvent -->
+
+        <a href=" ./public/images/YuvaGurukul/GlobalEvent/image-1744779879172-405116169Screenshot 2025-01-12 172153.png">
+            <img src=" ./public/images/YuvaGurukul/GlobalEvent/image-1744779879172-405116169Screenshot 2025-01-12 172153.png" alt="Yuva Gurukul Logo" width="150" />
+          </a>
+      </div>
+
+      <h2>Yuva Gurukul Event Ticket</h2>
+      <p>Dear {{NAME}},</p>
+      <p>Your ticket verification is:</p>
+      <div class="otp">{{OTP}}</div>
+      <p>Please use Ticket registration for the event is confomd.</p>
+      <a href="#" class="btn">Claim Your Ticket</a>
+      <div class="footer">© Yuva Gurukul. All rights reserved.</div>
+    </div>
+
+    <script>
+      function startCountdown(duration, display) {
+        let timer = duration,
+          minutes,
+          seconds;
+        let countdown = setInterval(function () {
+          minutes = Math.floor(timer / 60);
+          seconds = timer % 60;
+          seconds = seconds < 10 ? "0" + seconds : seconds;
+          display.textContent = minutes + ":" + seconds;
+          if (--timer < 0) {
+            clearInterval(countdown);
+            display.textContent = "Expired";
+          }
+        }, 1000);
+      }
+      window.onload = function () {
+        let countdownTime = 120,
+          display = document.querySelector("#timer");
+        startCountdown(countdownTime, display);
+      };
+    </script>
+  </body>
+</html>

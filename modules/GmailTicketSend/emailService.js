@@ -41,20 +41,24 @@ async function sendMail(to, subject, text, html = null) {
  */
 
 
-const sendGmailTicket = async (email, ticket, name) => {
+const sendGmailTicket = async (email, ticket, name, eventName, eventImage) => {
+    // image 
+    const image = 'http://localhost:3000/images/YuvaGurukul/GlobalEvent/' + eventImage;
+    console.log("eventImage :", eventImage);
     try {
         if (!email) {
             throw new Error("Email is required");
         }
 
         // Load Email Template
-        const emailTemplatePath = path.join(__dirname, "../GmailTicketSend/index_OTP_TIME_PHOTO.html");
+        // const emailTemplatePath = path.join(__dirname, "../GmailTicketSend/index_OTP_TIME_PHOTO.html");// Use this for OTP
+        const emailTemplatePath = path.join(__dirname, "../GmailTicketSend/EventGmail.html"); // Use this for Event Ticket
         // const emailTemplatePath = path.join(__dirname, "../GmailTicketSend/indexEventTicket.html");
 
         let emailHtml = `<p>Hello, this is a test email.</p>`; // Default fallback
         if (fs.existsSync(emailTemplatePath)) {
             emailHtml = await fs.promises.readFile(emailTemplatePath, "utf-8")
-                .then(content => content.replace(/{{OTP}}/g, ticket).replace(/{{NAME}}/g, name))
+                .then(content => content.replace(/{{OTP}}/g, ticket).replace(/{{NAME}}/g, name).replace(/{{IMAGE}}/g, image))
                 .catch(err => {
                     console.error("Error reading email template:", err);
                     return emailHtml; // Fallback in case of error

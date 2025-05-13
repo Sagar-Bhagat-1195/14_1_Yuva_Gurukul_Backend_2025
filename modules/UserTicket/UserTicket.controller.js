@@ -197,7 +197,9 @@ exports.confirmUserTicket = async (req, res) => {
     console.log("ExpiresAt:", expiresAtEvent.expiresAt);
 
     // Fetch the latest ticket number from the event
-    const existingEvent = await UserGlobalEvent.findById(GlobalEventId, { ticketNumber: 1 });
+    const existingEvent = await UserGlobalEvent.findById(GlobalEventId, { ticketNumber: 1 ,image: 1,eventName: 1});
+    console.log("existingEvent : ", existingEvent);
+
     if (!existingEvent) {
       return res.status(404).json({ message: "Event not found" });
     }
@@ -220,7 +222,7 @@ exports.confirmUserTicket = async (req, res) => {
     const ticketString = `[ ${newTicketNumbers.join(", ")} ]`;
     console.log("ticketString : ", ticketString);
 
-    await sendGmailTicket(user.email, ticketString, user.name + " " + user.surname);
+    await sendGmailTicket(user.email, ticketString, user.name + " " + user.surname,existingEvent.eventName,existingEvent.image);
 
     // Update the event's ticketNumber
     await UserGlobalEvent.findByIdAndUpdate(GlobalEventId, { $inc: { ticketNumber: numOfTickets } });
