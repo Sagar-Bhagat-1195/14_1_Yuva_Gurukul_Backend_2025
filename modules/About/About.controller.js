@@ -1,5 +1,6 @@
 const { validationResult } = require('express-validator');
 const About = require('./About.model');
+const { RemoveImageById } = require('./Image.controller');
 
 exports.createAbout = async (req, res) => {
   const errors = validationResult(req);
@@ -108,6 +109,11 @@ exports.deleteAbout = async (req, res) => {
   }
 
   try {
+
+    // Delete image from filesystem
+    await RemoveImageById(id);
+
+
     const deletedAbout = await About.findByIdAndDelete(id);
 
     if (!deletedAbout) {

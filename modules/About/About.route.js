@@ -2,10 +2,10 @@ const express = require("express");
 const router = express.Router();
 const aboutController = require("./About.controller");
 const UserSecure = require("../user/user.secure")
-// const imageRoutes = require("./Image.route"); // Import image routes
+const imageRoutes = require("./Image.route"); // Import image routes
 
 // Use image routes
-// router.use("/", imageRoutes);
+router.use("/", imageRoutes);
 
 // Routes for handling abouts
 router.post("/", UserSecure,aboutController.createAbout);
