@@ -4,6 +4,9 @@ const path = require("path");
 const nodemailer = require("nodemailer");
 require("dotenv").config(); // Load environment variables
 
+// Check if required environment variables are set
+const MAIN_URL_BACKEND = process.env.MAIN_URL_BACKEND;
+console.log("MAIN_URL_BACKEND:", MAIN_URL_BACKEND);
 // Global Transporter Setup (Use environment variables for security)
 const transporter = nodemailer.createTransport({
     service: "gmail",
@@ -43,8 +46,9 @@ async function sendMail(to, subject, text, html = null) {
 
 const sendGmailTicket = async (email, ticket, name, eventName, eventImage) => {
     // image 
-    const image = 'http://localhost:3000/images/YuvaGurukul/GlobalEvent/' + eventImage;
-    console.log("eventImage :", eventImage);
+    // const image = 'http://localhost:3000/images/YuvaGurukul/GlobalEvent/' + eventImage;
+    const image = MAIN_URL_BACKEND + 'images/YuvaGurukul/GlobalEvent/' + eventImage;
+    console.log("eventImage :", image);
     try {
         if (!email) {
             throw new Error("Email is required");
