@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-
+const dotenv = require('dotenv');
 /**
  * Module dependencies.
  */
@@ -13,7 +13,11 @@ var http = require('http');
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.REACT_APP_PORT || '3000');
+// Load environment variables from .env file
+const PORT = process.env.PORT || 3000;
+console.log("PORT ::", PORT);
+
+var port = normalizePort(PORT);
 app.set('port', port);
 
 if (process.env.REACT_APP_PORT) {

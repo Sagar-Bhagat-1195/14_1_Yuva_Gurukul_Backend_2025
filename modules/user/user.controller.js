@@ -6,8 +6,8 @@ const mongoose = require("mongoose");
 
 // Define your JWT secret
 const JWT_SECRET_KEY =
-  process.env.REACT_APP_JWT_SECRET || "your_default_secret_here";
-console.log("JWT_SECRET:", JWT_SECRET_KEY);
+  process.env.JWT_SECRET || "your_default_secret_here";
+console.log("JWT_SECRET :", JWT_SECRET_KEY);
 
 // Helper function to hash password
 const hashPassword = async (password) => await bcrypt.hash(password, 10);
@@ -293,6 +293,7 @@ exports.delete = async (req, res) => {
 
 // GetUser (Fetch User Details)
 exports.GetUser = async (req, res) => {
+  console.log("Get User Request Body:", req.body);
   try {
     const userId = req.UserSecure_id || req.params.id;
     const { data } = req.params;

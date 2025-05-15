@@ -6,12 +6,14 @@
 
 require('dotenv').config();
 
-const mongoose = require("mongoose");  
+const mongoose = require("mongoose");
 
 
+const MONGO_URI = process.env.MONGO_DB_CONNECTION_STRING || "mongodb://0.0.0.0:27017/Yuva_Gurukul_Data_Base_Backend_2025";
+
+console.log("MONGO_DB_CONNECTION_STRING : ", MONGO_URI);
 // DataBase Crete || connected
-const MONGODB_URI =
-  process.env.REACT_APP_DB_CONNECTION_STRING || "mongodb://0.0.0.0:27017/Yuva_Gurukul_Data_Base_Backend_2025";
+const MONGODB_URI = MONGO_URI;
 
 console.log(MONGODB_URI)
 // const MONGODB_URI = 'mongodb://0.0.0.0:27017/home-automation-data-2024';

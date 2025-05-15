@@ -3,8 +3,8 @@ const jwt = require('jsonwebtoken');
 const User = require("./user.model"); // Updated import to User model
 
 // Define your JWT secret
-const JWT_SECRET_KEY = process.env.REACT_APP_JWT_SECRET || "your_default_secret_here";
-//console.log("JWT_SECRET:", JWT_SECRET_KEY);
+const JWT_SECRET_KEY = process.env.JWT_SECRET || "your_default_secret_here";
+console.log("JWT_SECRET ::", JWT_SECRET_KEY);
 
 const fetchUser = async (req, res, next) => {
 
