@@ -47,14 +47,29 @@ const AboutRoutes = require('./modules/About/About.route'); // Import your image
 
 
 
+
 // view engine setup
+
+// Set views directory
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+// app.set('view engine', 'jade');
+
+// Serve HTML files directly (no template engine)
+app.set('view engine', 'html');
+
+// Route to render HTML
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'index.html'));
+});
+
+//----------------------------------------
 
 app.use(logger('dev'));
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+// Serve static files (like favicon.ico) from the public folder
 app.use(express.static(path.join(__dirname, 'public')));
+
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
