@@ -189,9 +189,10 @@ exports.getAllFooterByIDAndTypeAll = async (req, res) => {
             // If no ID, fetch all footers
             result = await Footer.find();
             if (result.length === 0) {
-                return res.status(404).json({
-                    isSuccess: false,
+                return res.status(200).json({
+                    isSuccess: true,
                     message: 'No footers found.',
+                    data: result,
                 });
             }
         }

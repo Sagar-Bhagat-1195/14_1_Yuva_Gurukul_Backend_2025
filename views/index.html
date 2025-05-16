@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yuva Gurukul</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #fafafa, #f0f2f5);
+      color: #444;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 20px;
+      line-height: 1.6;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 50px 30px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      max-width: 600px;
+      width: 100%;
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255,255,255,0.3);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .container:hover {
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+      transform: translateY(-5px);
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #2c3e50;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      background: linear-gradient(90deg, #3498db, #2ecc71);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: #7f8c8d;
+      margin-bottom: 30px;
+    }
+
+    .logo {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 25px;
+      background: linear-gradient(135deg, #e0f7fa, #b2ebf2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+
+    .logo-inner {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #4fc3f7, #00bcd4);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+
+    .features {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .feature {
+      flex: 1;
+      min-width: 120px;
+      margin: 10px;
+      padding: 15px;
+      background: rgba(236, 240, 241, 0.5);
+      border-radius: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .feature:hover {
+      background: rgba(189, 195, 199, 0.2);
+      transform: translateY(-3px);
+    }
+
+    .feature-icon {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+      color: #3498db;
+    }
+
+    .developer-info {
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid #eee;
+      font-size: 0.9rem;
+      color: #95a5a6;
+    }
+
+    .developer-info a {
+      color: #3498db;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .developer-info a:hover {
+      color: #2980b9;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      .container {
+        padding: 30px 20px;
+      }
+
+      .features {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">
+      <div class="logo-inner">YG</div>
+    </div>
+    <h1>Welcome to Yuva Gurukul</h1>
+    <p>Empowering youth through education and technology</p>
+    
+    <div class="features">
+      <div class="feature">
+        <div class="feature-icon">📚</div>
+        <div>Learning</div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">💡</div>
+        <div>Innovation</div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🌱</div>
+        <div>Growth</div>
+      </div>
+    </div>
+    
+    <div class="developer-info">
+      Developed by <strong>DevSkyAndTechnical</strong><br>
+      Contact: <a href="tel:8000101248">8000101248</a>
+      Gmail: <a href="mailto:SagarBhagat00@gmail.com">SagarBhagat00@gmail.com</a>
+    </div>
+  </div>
+</body>
+</html>

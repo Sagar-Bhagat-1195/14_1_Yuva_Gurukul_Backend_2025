@@ -50,6 +50,9 @@ Finel Link  :mongodb+srv://sagarbhagat00:192837465devsky@cluster0.qorju.mongodb.
 
  npm install slugify
 
+ npm uninstall jade
+
+
 //---------------------------------------
 
 //package.json
