@@ -3,6 +3,7 @@ const User = require("./user.model"); // Updated to use the User model
 const { body, validationResult } = require("express-validator");
 const jwt = require("jsonwebtoken");
 const mongoose = require("mongoose");
+const { RemoveUserAvatarById } = require("./Image.controller");
 
 // Define your JWT secret
 const JWT_SECRET_KEY =
@@ -279,6 +280,9 @@ exports.delete = async (req, res) => {
     if (!user.isEnabled) {
       return res.status(400).json({ message: "User is already disabled", isSuccess: false });
     }
+
+    // remove user avatar if it exists
+    // RemoveUserAvatarById(userId);
 
     // Delete user permanently
     await User.findByIdAndDelete(userId);

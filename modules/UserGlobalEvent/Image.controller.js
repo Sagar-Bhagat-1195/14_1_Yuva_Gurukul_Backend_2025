@@ -58,3 +58,37 @@ exports.uploadImage = async (req, res) => {
 };
 
 
+
+// Remove UserGlobalEvent image by ID
+exports.RemoveUserGlobalEventImageById = async (id) => {
+  console.log('Removing image for UserGlobalEvent...');
+
+  if (!id) throw new Error('UserGlobalEvent ID is required');
+
+  const event = await UserGlobalEvent.findById(id);
+  if (!event) throw new Error('UserGlobalEvent not found');
+  
+  if (event.image) {
+    const imagePath = path.join(
+      process.cwd(),
+      'public',
+      'images',
+      'YuvaGurukul',
+      'GlobalEvent', // Make sure this matches your folder structure
+      event.image
+    );
+
+    try {
+      await fs.promises.access(imagePath);
+      await fs.promises.unlink(imagePath);
+      console.log('UserGlobalEvent image deleted successfully');
+    } catch (err) {
+      if (err.code !== 'ENOENT') {
+        throw new Error('Error deleting image from storage: ' + err.message);
+      } else {
+        console.warn('Image file not found on disk');
+      }
+    }
+  }
+};
+

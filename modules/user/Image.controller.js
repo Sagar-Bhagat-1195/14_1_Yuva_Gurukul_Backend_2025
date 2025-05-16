@@ -149,3 +149,39 @@ exports.uploadAvatar = async (req, res) => {
 //     res.status(500).json({ error: error.message });
 //   }
 // };
+
+
+
+// Remove User Avatar by ID
+exports.RemoveUserAvatarById = async (id) => {
+  console.log('Removing avatar image for User...');
+
+  if (!id) throw new Error('User ID is required');
+
+  const user = await User.findById(id);
+  if (!user) throw new Error('User not found');
+
+  if (user.avatar) {
+    const avatarPath = path.join(
+      process.cwd(),
+      'public',
+      'images',
+      'YuvaGurukul',
+      'User', // update this to your actual avatar folder
+      user.avatar
+    );
+
+    try {
+      await fs.promises.access(avatarPath);
+      await fs.promises.unlink(avatarPath);
+      console.log('Avatar image deleted successfully');
+    } catch (err) {
+      if (err.code !== 'ENOENT') {
+        throw new Error('Error deleting avatar from storage: ' + err.message);
+      } else {
+        console.warn('Avatar image file not found on disk');
+      }
+    }
+  }
+};
+

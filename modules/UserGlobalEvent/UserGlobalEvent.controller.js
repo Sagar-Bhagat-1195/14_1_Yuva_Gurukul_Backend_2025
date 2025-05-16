@@ -1,6 +1,7 @@
 const UserGlobalEvent = require("./UserGlobalEvent.model");
 const User = require("../user/user.model");
 const mongoose = require("mongoose");
+const { RemoveUserGlobalEventImageById } = require("./Image.controller");
 
 // Create a new User Global Event
 exports.createUserGlobalEvent = async (req, res) => {
@@ -301,6 +302,9 @@ exports.deleteUserGlobalEvent = async (req, res) => {
         code: "EVENT_NOT_FOUND"
       });
     }
+
+    // Remove associated image if it exists
+    RemoveUserGlobalEventImageById(eventId);
 
     // Delete event
     const deletedEvent = await UserGlobalEvent.findByIdAndDelete(eventId);

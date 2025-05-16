@@ -5,7 +5,7 @@ const { RemoveImageById } = require('./Image.controller');
 // Add a new photo
 exports.addPhoto = [
   async (req, res) => {
-    console.log("addPhoto: Adding a new photo")
+    console.log("addPhoto: Adding a new photo.....................")
     try {
       const { name, type = 'General', image = "", description, isEnabled = true } = req.body;
 
@@ -19,7 +19,7 @@ exports.addPhoto = [
 
       // Check for duplicate image URL
       const existingPhoto = await Photo.findOne({ image });
-      if (existingPhoto) {
+      if (existingPhoto.length > 0) {
         return res.status(409).json({
           isSuccess: false,
           message: 'Photo with this image URL already exists.'
