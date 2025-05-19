@@ -225,6 +225,8 @@ exports.updateUserGlobalEvent = async (req, res) => {
       { new: true }
     );
 
+    await event.save();
+
     if (!event) {
       return res.status(404).json({ isSuccess: false, message: "Event not found." });
     }
